@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 #endregion
 
-namespace AwsS3Labs.Web
+namespace AWSS3Labs.Web
 {
     public class Program
     {

@@ -1,7 +1,4 @@
-﻿#region Imports
-#endregion
-
-namespace AwsS3Labs.Web.Configuration
+﻿namespace AWSS3Labs.Web.Configuration
 {
     public class S3Config
     {
