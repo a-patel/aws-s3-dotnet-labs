@@ -1,5 +1,6 @@
 #region Imports
 using AWSS3Labs.Web.Configuration;
+using AWSS3Labs.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +22,11 @@ namespace AWSS3Labs.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<S3Config>(Configuration.GetSection("S3Config"));
+            // Amazon S3 Configuration
+            var amazonS3Config = Configuration.GetSection(AmazonS3Defaults.SettingsSection).Get<AmazonS3Config>();
+            services.AddSingleton(amazonS3Config);
+            services.AddTransient<IAmazonS3Service, AmazonS3Service>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
